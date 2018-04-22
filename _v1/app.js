@@ -32,7 +32,7 @@ $(document).ready(function(){
 					 var templ_id = 'default';
 				  }
 				  
-				  items.push( '<section id="'+data[index]['id']+'" data-template="'+templ_id+'" class="edit"><div class="container">' );
+				  items.push( '<section id="'+data[index]['id']+'" data-template="'+templ_id+'" class="post"><div class="container">' );
 				  
 				  
 				  var source   = document.getElementById(templ_id).innerHTML;  
