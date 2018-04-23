@@ -1,8 +1,9 @@
 $(document).ready(function(){
 			
 			get_data(1);
-			
+		
 		});
+
 		
 		window.addEventListener("hashchange", get_data, false);
 		
@@ -22,42 +23,44 @@ $(document).ready(function(){
 				
 			  var items = [];
 				
+			  
+				
 			  $.each( data, (function( index ) {
 				  
 				  var item = data[index];
-				  if(data[index]['template']!==undefined){
-					 var templ_id = data[index]['template'];
+				  
+				  if(item['layout']!==undefined){
+					 var templ_id = item['layout'];
 				  }
 				  else{
 					 var templ_id = 'default';
 				  }
 				  
-				  items.push( '<section id="'+data[index]['id']+'" data-template="'+templ_id+'" class="post"><div class="container">' );
-				  
+				  if(item['column']!==undefined){
+					 var col = item['column'];
+				  }
+				  else{
+					 var col = 'main';
+				  }
 				  
 				  var source   = document.getElementById(templ_id).innerHTML;  
 				  var template = Handlebars.compile(source);
 				  var html    = template(item);
 				  
-					items.push(html);
+				 	
+				  $(col).append(html);
 				  
-				 
-				  items.push( '</div></section>' );
+					// items.push(html);
+				
 			  }));
 
-			  var posts = $( "<div/>", {
-				"class": "my-new-list",
-				html: items.join( "" )
-			  });
-				
+			 
 			if(fadein=='1'){
 				
-				$('main').html(posts).fadeIn();	
+				$('#page').fadeIn();	
 				
 				
-			}
-			else{
-				$('main').html(posts);	
+				
 			}
 			
 			
