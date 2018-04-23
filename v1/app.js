@@ -23,7 +23,8 @@ $(document).ready(function(){
 				
 			  var items = [];
 				
-			  
+			  $('main').html('');
+			 $('footer').html('');
 				
 			  $.each( data, (function( index ) {
 				  
